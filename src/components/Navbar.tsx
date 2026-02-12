@@ -39,6 +39,7 @@ export default function Navbar({ lang }: NavbarProps) {
   const t = (key: string) => getTranslation(lang, key);
   const otherLang = lang === 'en' ? 'ar' : 'en';
   const otherLangPath = pathname.replace(`/${lang}`, `/${otherLang}`);
+  const showAdminLink = process.env.NODE_ENV !== 'production' || process.env.NEXT_PUBLIC_ENABLE_ADMIN_IN_PRODUCTION === 'true';
 
   return (
     <nav className={`bg-white shadow-lg sticky top-0 z-50 border-b-2 border-amber-500 ${isRTL ? 'font-arabic' : 'font-english'}`} dir={isRTL ? 'rtl' : 'ltr'}>
@@ -96,13 +97,15 @@ export default function Navbar({ lang }: NavbarProps) {
               )}
             </Link>
 
-            <Link
-              href="/admin/login"
-              className={`flex items-center ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'} text-gray-700 hover:text-amber-600 transition-colors font-medium ${pathname.startsWith('/admin') ? 'text-amber-600 font-bold' : ''}`}
-            >
-              <Shield size={20} />
-              <span>{lang === 'ar' ? 'الإدارة' : 'Admin'}</span>
-            </Link>
+            {showAdminLink && (
+              <Link
+                href="/admin/login"
+                className={`flex items-center ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'} text-gray-700 hover:text-amber-600 transition-colors font-medium ${pathname.startsWith('/admin') ? 'text-amber-600 font-bold' : ''}`}
+              >
+                <Shield size={20} />
+                <span>{lang === 'ar' ? 'الإدارة' : 'Admin'}</span>
+              </Link>
+            )}
           </div>
 
           {/* Language Switch */}
@@ -148,13 +151,15 @@ export default function Navbar({ lang }: NavbarProps) {
               )}
             </Link>
 
-            <Link
-              href="/admin/login"
-              className={`flex flex-col items-center ${pathname.startsWith('/admin') ? 'text-amber-600' : 'text-gray-600'}`}
-            >
-              <Shield size={24} />
-              <span className="text-xs mt-1 font-medium">{lang === 'ar' ? 'الإدارة' : 'Admin'}</span>
-            </Link>
+            {showAdminLink && (
+              <Link
+                href="/admin/login"
+                className={`flex flex-col items-center ${pathname.startsWith('/admin') ? 'text-amber-600' : 'text-gray-600'}`}
+              >
+                <Shield size={24} />
+                <span className="text-xs mt-1 font-medium">{lang === 'ar' ? 'الإدارة' : 'Admin'}</span>
+              </Link>
+            )}
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { getProducts, getProductById, addProduct, updateProduct, deleteProduct } from '@/lib/data';
 import { isAuthenticated } from '@/lib/auth';
 import { Product } from '@/types';
+import { getAdminDisabledMessage, isAdminAccessEnabled } from '@/lib/adminAccess';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,6 +23,10 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  if (!isAdminAccessEnabled()) {
+    return NextResponse.json({ error: getAdminDisabledMessage() }, { status: 404 });
+  }
+
   const authenticated = await isAuthenticated();
   if (!authenticated) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -37,6 +42,10 @@ export async function POST(request: Request) {
 }
 
 export async function PUT(request: Request) {
+  if (!isAdminAccessEnabled()) {
+    return NextResponse.json({ error: getAdminDisabledMessage() }, { status: 404 });
+  }
+
   const authenticated = await isAuthenticated();
   if (!authenticated) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
@@ -52,6 +61,10 @@ export async function PUT(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+  if (!isAdminAccessEnabled()) {
+    return NextResponse.json({ error: getAdminDisabledMessage() }, { status: 404 });
+  }
+
   const authenticated = await isAuthenticated();
   if (!authenticated) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });

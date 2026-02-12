@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Lock, Sparkles } from 'lucide-react';
 
@@ -9,6 +9,13 @@ export default function AdminLoginPage() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const isAdminEnabled = process.env.NODE_ENV !== 'production' || process.env.NEXT_PUBLIC_ENABLE_ADMIN_IN_PRODUCTION === 'true';
+
+  useEffect(() => {
+    if (!isAdminEnabled) {
+      router.replace('/en');
+    }
+  }, [isAdminEnabled, router]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -35,6 +42,10 @@ export default function AdminLoginPage() {
       setLoading(false);
     }
   };
+
+  if (!isAdminEnabled) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-100 via-orange-100 to-rose-100 flex items-center justify-center p-4 relative overflow-hidden">

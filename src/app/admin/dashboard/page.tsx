@@ -56,6 +56,7 @@ const emptyCouponForm: CouponFormState = {
 
 export default function AdminDashboard() {
   const router = useRouter();
+  const isAdminEnabled = process.env.NODE_ENV !== 'production' || process.env.NEXT_PUBLIC_ENABLE_ADMIN_IN_PRODUCTION === 'true';
   const [products, setProducts] = useState<Product[]>([]);
   const [coupons, setCoupons] = useState<Coupon[]>([]);
   const [activeTab, setActiveTab] = useState<'products' | 'coupons'>('products');
@@ -70,8 +71,13 @@ export default function AdminDashboard() {
   const [couponForm, setCouponForm] = useState<CouponFormState>(emptyCouponForm);
 
   useEffect(() => {
+    if (!isAdminEnabled) {
+      router.replace('/en');
+      return;
+    }
+
     initializeDashboard();
-  }, []);
+  }, [isAdminEnabled, router]);
 
   const initializeDashboard = async () => {
     const authenticated = await checkAuth();
@@ -358,6 +364,10 @@ export default function AdminDashboard() {
       alert('Failed to delete coupon');
     }
   };
+
+  if (!isAdminEnabled) {
+    return null;
+  }
 
   if (loading) {
     return (
