@@ -16,15 +16,37 @@ export default function AdminDashboard() {
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
 
   useEffect(() => {
-    checkAuth();
-    loadData();
+    initializeDashboard();
   }, []);
 
-  const checkAuth = async () => {
-    // Simple client-side check
-    const token = document.cookie.split('; ').find(row => row.startsWith('admin_token='));
-    if (!token) {
+  const initializeDashboard = async () => {
+    const authenticated = await checkAuth();
+    if (!authenticated) {
+      setLoading(false);
+      return;
+    }
+
+    await loadData();
+  };
+
+  const checkAuth = async (): Promise<boolean> => {
+    try {
+      const response = await fetch('/api/admin/login', {
+        method: 'GET',
+        credentials: 'include',
+        cache: 'no-store',
+      });
+      const data = await response.json();
+
+      if (!response.ok || !data.authenticated) {
+        router.push('/admin/login');
+        return false;
+      }
+
+      return true;
+    } catch (error) {
       router.push('/admin/login');
+      return false;
     }
   };
 

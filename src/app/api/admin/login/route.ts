@@ -1,5 +1,16 @@
 import { NextResponse } from 'next/server';
-import { verifyAdminPassword, generateAdminToken, setAdminCookie, clearAdminCookie } from '@/lib/auth';
+import {
+  verifyAdminPassword,
+  generateAdminToken,
+  setAdminCookie,
+  clearAdminCookie,
+  isAuthenticated,
+} from '@/lib/auth';
+
+export async function GET() {
+  const authenticated = await isAuthenticated();
+  return NextResponse.json({ authenticated });
+}
 
 export async function POST(request: Request) {
   try {
