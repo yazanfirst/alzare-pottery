@@ -44,6 +44,23 @@ const emptyProductForm: ProductFormState = {
   featured: false,
 };
 
+
+function parseImagesField(value: string): string[] {
+  return value
+    .split('\n')
+    .flatMap(line => {
+      const trimmed = line.trim();
+      if (!trimmed) return [];
+      if (trimmed.startsWith('data:image/')) return [trimmed];
+      return trimmed.split(',').map(part => part.trim()).filter(Boolean);
+    })
+    .filter(Boolean);
+}
+
+function stringifyImagesField(images: string[]): string {
+  return images.join('\n');
+}
+
 const emptyCouponForm: CouponFormState = {
   code: '',
   discountType: 'percentage',
@@ -162,7 +179,7 @@ export default function AdminDashboard() {
       tags: product.tags.join(', '),
       price: String(product.price),
       stock: String(product.stock),
-      images: product.images.join(', '),
+      images: stringifyImagesField(product.images),
       featured: product.featured,
     });
     setShowProductForm(true);
@@ -184,14 +201,11 @@ export default function AdminDashboard() {
       )
     );
 
-    const existing = productForm.images
-      .split(',')
-      .map(img => img.trim())
-      .filter(Boolean);
+    const existing = parseImagesField(productForm.images);
 
     setProductForm(prev => ({
       ...prev,
-      images: [...existing, ...dataUrls].join(', '),
+      images: stringifyImagesField([...existing, ...dataUrls]),
     }));
 
     e.target.value = '';
@@ -218,10 +232,7 @@ export default function AdminDashboard() {
         .filter(Boolean),
       price: Number(productForm.price),
       stock: Number(productForm.stock),
-      images: productForm.images
-        .split(',')
-        .map(img => img.trim())
-        .filter(Boolean),
+      images: parseImagesField(productForm.images),
       featured: productForm.featured,
       createdAt: editingProduct?.createdAt || new Date().toISOString(),
       updatedAt: new Date().toISOString(),
@@ -546,17 +557,14 @@ export default function AdminDashboard() {
             <textarea className="input-field min-h-[90px]" placeholder="English Description" value={productForm.descriptionEn} onChange={e => setProductForm(prev => ({ ...prev, descriptionEn: e.target.value }))} required />
             <textarea className="input-field min-h-[90px]" placeholder="Arabic Description" value={productForm.descriptionAr} onChange={e => setProductForm(prev => ({ ...prev, descriptionAr: e.target.value }))} required />
             <input className="input-field" placeholder="Tags (comma separated)" value={productForm.tags} onChange={e => setProductForm(prev => ({ ...prev, tags: e.target.value }))} />
-            <input className="input-field" placeholder="Image URLs (comma separated)" value={productForm.images} onChange={e => setProductForm(prev => ({ ...prev, images: e.target.value }))} />
+            <textarea className="input-field min-h-[90px]" placeholder="Image URLs (comma separated or one URL per line)" value={productForm.images} onChange={e => setProductForm(prev => ({ ...prev, images: e.target.value }))} />
             <div className="space-y-2">
               <label className="block text-sm text-gray-600">Upload product images (no URL needed)</label>
               <input type="file" accept="image/*" multiple onChange={handleProductImageUpload} className="input-field" />
             </div>
             {productForm.images && (
               <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
-                {productForm.images
-                  .split(',')
-                  .map(img => img.trim())
-                  .filter(Boolean)
+                {parseImagesField(productForm.images)
                   .slice(0, 5)
                   .map((img, idx) => (
                     <img key={idx} src={img} alt={`Preview ${idx + 1}`} className="h-20 w-full object-cover rounded-lg border" />
