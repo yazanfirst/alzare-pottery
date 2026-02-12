@@ -1,0 +1,204 @@
+{
+  "products": [
+    {
+      "id": "prod_001",
+      "sku": "AZP-IDP-001",
+      "name": {
+        "en": "Desert Clay Planter",
+        "ar": "قصرية طينية صحراوية"
+      },
+      "description": {
+        "en": "Handcrafted clay planter with traditional UAE desert aesthetic. Perfect for indoor plants, featuring natural beige tones and smooth finish.",
+        "ar": "قصرية مصنوعة يدوياً من الطين بتصميم صحراوي إماراتي تقليدي. مثالية للنباتات الداخلية، تتميز بألوان بيج طبيعية وتشطيب ناعم."
+      },
+      "category": "Indoor Planters",
+      "tags": ["handmade", "indoor", "beige", "traditional"],
+      "price": 135,
+      "stock": 24,
+      "images": ["/uploads/product-1-1.jpg", "/uploads/product-1-2.jpg"],
+      "featured": true,
+      "createdAt": "2026-02-01T10:00:00Z",
+      "updatedAt": "2026-02-01T10:00:00Z"
+    },
+    {
+      "id": "prod_002",
+      "sku": "AZP-ODP-002",
+      "name": {
+        "en": "Large Terracotta Garden Pot",
+        "ar": "قصرية حديقة كبيرة من التيراكوتا"
+      },
+      "description": {
+        "en": "Large outdoor terracotta planter with drainage holes. Weather-resistant finish suitable for UAE climate. Adds earthy warmth to your garden.",
+        "ar": "قصرية تيراكوتا خارجية كبيرة مع فتحات تصريف. تشطيب مقاوم للطقس ومناسب لمناخ الإمارات. تضيف دفء طبيعي لحديقتك."
+      },
+      "category": "Outdoor Planters",
+      "tags": ["outdoor", "terracotta", "large", "drainage"],
+      "price": 265,
+      "stock": 15,
+      "images": ["/uploads/product-2-1.jpg", "/uploads/product-2-2.jpg"],
+      "featured": true,
+      "createdAt": "2026-02-02T10:00:00Z",
+      "updatedAt": "2026-02-02T10:00:00Z"
+    },
+    {
+      "id": "prod_003",
+      "sku": "AZP-DEC-003",
+      "name": {
+        "en": "Geometric Decorative Pot Set",
+        "ar": "طقم قصاري زخرفية هندسية"
+      },
+      "description": {
+        "en": "Modern geometric design decorative pot set (3 pieces). Features contemporary patterns with traditional clay craftsmanship. Perfect centerpiece.",
+        "ar": "طقم قصاري زخرفية بتصميم هندسي حديث (3 قطع). يتميز بأنماط عصرية مع حرفية طينية تقليدية. قطعة مركزية مثالية."
+      },
+      "category": "Decorative Pots",
+      "tags": ["decorative", "modern", "set", "geometric"],
+      "price": 420,
+      "stock": 12,
+      "images": ["/uploads/product-3-1.jpg", "/uploads/product-3-2.jpg"],
+      "featured": true,
+      "createdAt": "2026-02-03T10:00:00Z",
+      "updatedAt": "2026-02-03T10:00:00Z"
+    },
+    {
+      "id": "prod_004",
+      "sku": "AZP-TRA-004",
+      "name": {
+        "en": "Traditional Clay Water Pot",
+        "ar": "جرة ماء طينية تقليدية"
+      },
+      "description": {
+        "en": "Authentic traditional Emirati clay water pot. Handcrafted using centuries-old techniques. Natural cooling properties, keeps water fresh.",
+        "ar": "جرة ماء طينية إماراتية تقليدية أصيلة. مصنوعة يدوياً باستخدام تقنيات عمرها قرون. خصائص تبريد طبيعية، تحافظ على برودة الماء."
+      },
+      "category": "Traditional Clay Pots",
+      "tags": ["traditional", "authentic", "water-pot", "heritage"],
+      "price": 95,
+      "stock": 30,
+      "images": ["/uploads/product-4-1.jpg"],
+      "featured": false,
+      "createdAt": "2026-02-04T10:00:00Z",
+      "updatedAt": "2026-02-04T10:00:00Z"
+    },
+    {
+      "id": "prod_005",
+      "sku": "AZP-SET-005",
+      "name": {
+        "en": "Complete Garden Planter Collection",
+        "ar": "مجموعة قصاري الحديقة الكاملة"
+      },
+      "description": {
+        "en": "Premium 5-piece garden planter set in varying sizes. Coordinated earth tones, perfect for creating a cohesive outdoor space. All pots include drainage.",
+        "ar": "طقم قصاري حديقة فاخر من 5 قطع بأحجام متنوعة. ألوان ترابية منسقة، مثالية لإنشاء مساحة خارجية متناسقة. جميع القصاري تحتوي على تصريف."
+      },
+      "category": "Garden Sets",
+      "tags": ["set", "outdoor", "premium", "collection"],
+      "price": 680,
+      "stock": 8,
+      "images": ["/uploads/product-5-1.jpg", "/uploads/product-5-2.jpg"],
+      "featured": true,
+      "createdAt": "2026-02-05T10:00:00Z",
+      "updatedAt": "2026-02-05T10:00:00Z"
+    },
+    {
+      "id": "prod_006",
+      "sku": "AZP-IDP-006",
+      "name": {
+        "en": "Olive Green Indoor Planter",
+        "ar": "قصرية داخلية خضراء زيتونية"
+      },
+      "description": {
+        "en": "Small olive-green glazed ceramic planter. Modern matte finish, perfect for succulents and small indoor plants. Includes removable saucer.",
+        "ar": "قصرية سيراميك صغيرة مزججة باللون الأخضر الزيتوني. تشطيب مات حديث، مثالية للنباتات العصارية والنباتات الداخلية الصغيرة. تتضمن صحن قابل للإزالة."
+      },
+      "category": "Indoor Planters",
+      "tags": ["indoor", "glazed", "small", "modern"],
+      "price": 65,
+      "stock": 45,
+      "images": ["/uploads/product-6-1.jpg"],
+      "featured": false,
+      "createdAt": "2026-02-06T10:00:00Z",
+      "updatedAt": "2026-02-06T10:00:00Z"
+    },
+    {
+      "id": "prod_007",
+      "sku": "AZP-ODP-007",
+      "name": {
+        "en": "Tall Cylinder Outdoor Planter",
+        "ar": "قصرية خارجية أسطوانية طويلة"
+      },
+      "description": {
+        "en": "Contemporary tall cylinder planter for outdoor use. Durable clay construction with weather-resistant coating. Ideal for palms and tall plants.",
+        "ar": "قصرية أسطوانية طويلة عصرية للاستخدام الخارجي. بناء طيني متين مع طلاء مقاوم للطقس. مثالية للنخيل والنباتات الطويلة."
+      },
+      "category": "Outdoor Planters",
+      "tags": ["outdoor", "tall", "cylinder", "contemporary"],
+      "price": 310,
+      "stock": 10,
+      "images": ["/uploads/product-7-1.jpg"],
+      "featured": false,
+      "createdAt": "2026-02-07T10:00:00Z",
+      "updatedAt": "2026-02-07T10:00:00Z"
+    },
+    {
+      "id": "prod_008",
+      "sku": "AZP-DEC-008",
+      "name": {
+        "en": "Artisan Textured Bowl Planter",
+        "ar": "قصرية وعاء منسوجة حرفياً"
+      },
+      "description": {
+        "en": "Handcrafted decorative bowl with unique textured surface. Each piece is one-of-a-kind. Beautiful as standalone decor or with plants.",
+        "ar": "وعاء زخرفي مصنوع يدوياً بسطح منسوج فريد. كل قطعة فريدة من نوعها. جميل كديكور مستقل أو مع النباتات."
+      },
+      "category": "Decorative Pots",
+      "tags": ["decorative", "handcrafted", "textured", "unique"],
+      "price": 145,
+      "stock": 18,
+      "images": ["/uploads/product-8-1.jpg", "/uploads/product-8-2.jpg"],
+      "featured": false,
+      "createdAt": "2026-02-08T10:00:00Z",
+      "updatedAt": "2026-02-08T10:00:00Z"
+    },
+    {
+      "id": "prod_009",
+      "sku": "AZP-CUS-009",
+      "name": {
+        "en": "Custom Engraved Family Planter",
+        "ar": "قصرية عائلية محفورة حسب الطلب"
+      },
+      "description": {
+        "en": "Personalized planter with custom name or message engraving. Perfect gift for weddings, new homes, or special occasions. Made to order.",
+        "ar": "قصرية شخصية مع نقش اسم أو رسالة حسب الطلب. هدية مثالية لحفلات الزفاف، المنازل الجديدة، أو المناسبات الخاصة. تُصنع حسب الطلب."
+      },
+      "category": "Custom Orders",
+      "tags": ["custom", "engraved", "personalized", "gift"],
+      "price": 350,
+      "stock": 5,
+      "images": ["/uploads/product-9-1.jpg"],
+      "featured": false,
+      "createdAt": "2026-02-09T10:00:00Z",
+      "updatedAt": "2026-02-09T10:00:00Z"
+    },
+    {
+      "id": "prod_010",
+      "sku": "AZP-TRA-010",
+      "name": {
+        "en": "Heritage Cooking Pot",
+        "ar": "قدر طبخ تراثي"
+      },
+      "description": {
+        "en": "Traditional Emirati clay cooking pot for authentic slow-cooked dishes. Food-safe glazed interior. Connects you to culinary heritage.",
+        "ar": "قدر طبخ طيني إماراتي تقليدي للأطباق البطيئة الأصيلة. داخلية مزججة آمنة للطعام. يربطك بالتراث الطهي."
+      },
+      "category": "Traditional Clay Pots",
+      "tags": ["traditional", "cooking", "heritage", "food-safe"],
+      "price": 125,
+      "stock": 20,
+      "images": ["/uploads/product-10-1.jpg"],
+      "featured": false,
+      "createdAt": "2026-02-10T10:00:00Z",
+      "updatedAt": "2026-02-10T10:00:00Z"
+    }
+  ]
+}
