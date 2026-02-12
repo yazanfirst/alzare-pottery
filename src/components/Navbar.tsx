@@ -1,10 +1,8 @@
 'use client';
 
-'use client';
-
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { ShoppingCart, Home, Package } from 'lucide-react';
+import { ShoppingCart, Home, Package, Shield } from 'lucide-react';
 import { Language } from '@/types';
 import { getTranslation } from '@/lib/utils';
 import { useEffect, useState } from 'react';
@@ -97,6 +95,14 @@ export default function Navbar({ lang }: NavbarProps) {
                 </span>
               )}
             </Link>
+
+            <Link
+              href="/admin/login"
+              className={`flex items-center ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'} text-gray-700 hover:text-amber-600 transition-colors font-medium ${pathname.startsWith('/admin') ? 'text-amber-600 font-bold' : ''}`}
+            >
+              <Shield size={20} />
+              <span>{lang === 'ar' ? 'الإدارة' : 'Admin'}</span>
+            </Link>
           </div>
 
           {/* Language Switch */}
@@ -140,6 +146,14 @@ export default function Navbar({ lang }: NavbarProps) {
                   {cartCount}
                 </span>
               )}
+            </Link>
+
+            <Link
+              href="/admin/login"
+              className={`flex flex-col items-center ${pathname.startsWith('/admin') ? 'text-amber-600' : 'text-gray-600'}`}
+            >
+              <Shield size={24} />
+              <span className="text-xs mt-1 font-medium">{lang === 'ar' ? 'الإدارة' : 'Admin'}</span>
             </Link>
           </div>
         </div>
