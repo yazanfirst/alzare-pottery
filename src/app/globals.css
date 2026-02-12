@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-arabic: 'Cairo', 'Tajawal', sans-serif;
+  --font-english: 'Inter', 'system-ui', sans-serif;
+}
+
+body {
+  @apply bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50;
+  @apply text-gray-800;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
+}
+
+[dir="ltr"] {
+  direction: ltr;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-amber-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-amber-400 to-orange-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply from-amber-500 to-orange-600;
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-300;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 rounded-xl hover:from-amber-600 hover:to-orange-600 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply bg-gradient-to-r from-rose-500 to-pink-500 text-white px-8 py-4 rounded-xl hover:from-rose-600 hover:to-pink-600 font-bold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+}
+
+.btn-outline {
+  @apply border-2 border-amber-500 text-amber-600 px-8 py-4 rounded-xl hover:bg-gradient-to-r hover:from-amber-500 hover:to-orange-500 hover:text-white font-bold shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full px-5 py-3 border-2 border-amber-300 rounded-xl focus:border-amber-500 focus:ring-4 focus:ring-amber-100 focus:outline-none bg-white shadow-sm;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transform hover:-translate-y-1;
+}
+
+/* Container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Arabic font loading */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Pottery-specific animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Grid layouts */
+.product-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8;
+}
+
+/* Price tag */
+.price-tag {
+  @apply text-3xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent;
+}
+
+/* Badge */
+.badge {
+  @apply inline-block px-4 py-2 rounded-full text-sm font-bold shadow-md;
+}
+
+.badge-success {
+  @apply bg-gradient-to-r from-green-400 to-emerald-500 text-white;
+}
+
+.badge-danger {
+  @apply bg-gradient-to-r from-red-400 to-rose-500 text-white;
+}
+
+.badge-warning {
+  @apply bg-gradient-to-r from-yellow-400 to-amber-500 text-white;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin rounded-full border-4 border-amber-200 border-t-amber-600;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 bg-clip-text text-transparent;
+}
+
+/* Hover effects */
+.hover-lift {
+  @apply transform transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+}
+
+/* Glass morphism */
+.glass {
+  @apply bg-white bg-opacity-80 backdrop-blur-lg border border-white border-opacity-30;
+}
+
+/* Decorative elements */
+.pattern-dots {
+  background-image: radial-gradient(circle, rgba(251, 191, 36, 0.2) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-grid {
+  background-image: linear-gradient(rgba(251, 191, 36, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 191, 36, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}

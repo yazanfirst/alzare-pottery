@@ -1,0 +1,28 @@
+{
+  "coupons": [
+    {
+      "id": "coupon_001",
+      "code": "WELCOME10",
+      "discountType": "percentage",
+      "discountValue": 15,
+      "startDate": "2026-02-13T00:00:00.000Z",
+      "endDate": "2026-02-28T00:00:00.000Z",
+      "usageLimit": 100,
+      "usageCount": 0,
+      "active": true,
+      "createdAt": "2026-02-01T10:00:00Z"
+    },
+    {
+      "id": "coupon_002",
+      "code": "SPRING50",
+      "discountType": "fixed",
+      "discountValue": 50,
+      "startDate": "2026-02-13T00:00:00.000Z",
+      "endDate": "2026-02-16T00:00:00.000Z",
+      "usageLimit": 50,
+      "usageCount": 0,
+      "active": true,
+      "createdAt": "2026-02-01T10:00:00Z"
+    }
+  ]
+}
