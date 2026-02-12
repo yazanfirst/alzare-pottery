@@ -26,11 +26,11 @@ export default function HomePage() {
           <div className="container-custom relative z-10">
             <div className="max-w-2xl">
               <h1 className="text-6xl font-bold text-pottery-earth mb-6 leading-tight">
-                فخار مصنوع<br />
-                <span className="text-pottery-terracotta">يدوياً</span>
+                قصاري الزارع<br />
+                <span className="text-pottery-terracotta">قصاري نباتات لكل مكان</span>
               </h1>
               <p className="text-xl text-pottery-earth mb-8 leading-relaxed">
-                فن الطين الإماراتي التقليدي يلتقي بالتصميم الحديث. كل قطعة تروي قصة من التراث والحرفية.
+                نوفر قصاري نباتات عملية وأنيقة للمنازل والحدائق والشرفات والمساحات التجارية في الإمارات.
               </p>
               <Link href="/ar/products" className="btn-primary inline-flex items-center space-x-2 space-x-reverse text-lg">
                 <span>تسوق المجموعة</span>

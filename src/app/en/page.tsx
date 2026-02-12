@@ -29,17 +29,17 @@ export default function HomePage() {
             <div className="max-w-3xl">
               <div className="inline-flex items-center space-x-2 bg-white bg-opacity-80 backdrop-blur-sm px-6 py-3 rounded-full mb-6 shadow-lg">
                 <Sparkles size={20} className="text-amber-500" />
-                <span className="text-amber-600 font-bold">Authentic Emirati Craftsmanship</span>
+                <span className="text-amber-600 font-bold">Premium Plant Pots</span>
               </div>
               
               <h1 className="text-7xl font-black mb-6 leading-tight">
-                <span className="block text-gray-800">Handcrafted</span>
-                <span className="block gradient-text">Pottery</span>
-                <span className="block text-gray-700">Excellence</span>
+                <span className="block text-gray-800">Plant Pots</span>
+                <span className="block gradient-text">For Every</span>
+                <span className="block text-gray-700">Space</span>
               </h1>
               
               <p className="text-2xl text-gray-700 mb-10 leading-relaxed font-medium">
-                Traditional Emirati clay artistry meets modern design. Each piece tells a story of heritage and craftsmanship.
+                Stylish and durable planters for homes, gardens, balconies, and commercial spaces across the UAE.
               </p>
               
               <div className="flex flex-wrap gap-4">
