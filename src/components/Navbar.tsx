@@ -7,6 +7,8 @@ import { Language } from '@/types';
 import { getTranslation } from '@/lib/utils';
 import { useEffect, useState } from 'react';
 
+const LOGO_ASSET = '/logo.png?v=20260213';
+
 interface NavbarProps {
   lang: Language;
 }
@@ -48,7 +50,7 @@ export default function Navbar({ lang }: NavbarProps) {
           {/* Logo */}
           <Link href={`/${lang}`} className="flex items-center space-x-3">
             <img 
-              src="/logo.png" 
+              src={LOGO_ASSET} 
               alt="Al Zare' Pottery" 
               className="h-12 w-auto"
               onError={(e) => {
