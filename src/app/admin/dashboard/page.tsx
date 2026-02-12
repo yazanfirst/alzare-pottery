@@ -162,6 +162,35 @@ export default function AdminDashboard() {
     setShowProductForm(true);
   };
 
+  const handleProductImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    if (!files.length) return;
+
+    const dataUrls = await Promise.all(
+      files.map(
+        file =>
+          new Promise<string>((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(String(reader.result || ''));
+            reader.onerror = () => reject(new Error('Failed to read image file'));
+            reader.readAsDataURL(file);
+          })
+      )
+    );
+
+    const existing = productForm.images
+      .split(',')
+      .map(img => img.trim())
+      .filter(Boolean);
+
+    setProductForm(prev => ({
+      ...prev,
+      images: [...existing, ...dataUrls].join(', '),
+    }));
+
+    e.target.value = '';
+  };
+
   const submitProduct = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -508,6 +537,22 @@ export default function AdminDashboard() {
             <textarea className="input-field min-h-[90px]" placeholder="Arabic Description" value={productForm.descriptionAr} onChange={e => setProductForm(prev => ({ ...prev, descriptionAr: e.target.value }))} required />
             <input className="input-field" placeholder="Tags (comma separated)" value={productForm.tags} onChange={e => setProductForm(prev => ({ ...prev, tags: e.target.value }))} />
             <input className="input-field" placeholder="Image URLs (comma separated)" value={productForm.images} onChange={e => setProductForm(prev => ({ ...prev, images: e.target.value }))} />
+            <div className="space-y-2">
+              <label className="block text-sm text-gray-600">Upload product images (no URL needed)</label>
+              <input type="file" accept="image/*" multiple onChange={handleProductImageUpload} className="input-field" />
+            </div>
+            {productForm.images && (
+              <div className="grid grid-cols-3 md:grid-cols-5 gap-2">
+                {productForm.images
+                  .split(',')
+                  .map(img => img.trim())
+                  .filter(Boolean)
+                  .slice(0, 5)
+                  .map((img, idx) => (
+                    <img key={idx} src={img} alt={`Preview ${idx + 1}`} className="h-20 w-full object-cover rounded-lg border" />
+                  ))}
+              </div>
+            )}
 
             <label className="flex items-center gap-2 text-gray-700">
               <input type="checkbox" checked={productForm.featured} onChange={e => setProductForm(prev => ({ ...prev, featured: e.target.checked }))} />
